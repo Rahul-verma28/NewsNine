@@ -9,7 +9,7 @@ import {
 
 export function NewsItem({ title, description, imgurl, newsurl, author, date, sourseName }) {
   return (
-    <Card className="m-6 hover:shadow-2xl relative transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-200">
+    <Card className="m-6 hover:shadow-2xl relative transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-gray-100 duration-200">
       <CardHeader color="blue-gray" className="relative">
         <img
           src={imgurl}
@@ -36,7 +36,7 @@ export function NewsItem({ title, description, imgurl, newsurl, author, date, so
           {description}...
         </Typography>
         <Typography>
-          <p className="card-text text-danger mt-5 text-body-secondary font-bold text-danger">{author}, {new Date(date).toGMTString()}</p>
+          <p className="card-text text-danger mt-5 text-body-secondary font-bold text-danger">{author},<span className="text-xs font-semibold"> {new Date(date).toGMTString()}</span></p>
         </Typography>
       </CardBody>
       <CardFooter>

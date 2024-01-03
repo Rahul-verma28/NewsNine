@@ -2,45 +2,41 @@ import React, { useState, useEffect } from 'react'
 import { NewsItem } from './NewsItem'
 import axios from 'axios'
 
-const News = ({ category, setProgress }) => {
 
-    const [articles, setArticles] = useState([])
-
-    const Capitalize = (str) => {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    };
-
+const SearchedNews = ({ setProgress, value }) => {
+    const [searchedArticles, setsearchedArticles] = useState([])
 
     useEffect(() => {
-        const url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&pageSize=80&apiKey=bf3aa761613547dc8fdc2056e11b3fc6`
+
+        const url = `https://newsapi.org/v2/everything?q=${value}&apiKey=bf3aa761613547dc8fdc2056e11b3fc6`
+        // const url = `https://newsapi.org/v2/everything?q=modi&apiKey=bf3aa761613547dc8fdc2056e11b3fc6`
 
         async function fetchData() {
             try {
-                setProgress(30)
+                setProgress(0)
                 const response = await axios.get(url)
                 let allnews = response.data.articles;
-                setArticles(allnews)
-
+                setsearchedArticles(allnews)
                 setProgress(100)
+                console.log(value)
             } catch (error) {
                 console.log("you have an error: ", error);
             }
-
         }
+
 
         fetchData();
 
-        document.title = `${Capitalize(category)} - NewsNine`;
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [value])
 
     return (
         <>
-            {articles.length === 0 && <h2 className='font-bold text-center '>Loading...</h2>}
-            <div className='grid sm:grid-cols-2 lg:grid-cols-3 py-5 md:px-20 mx-auto'>
+            {searchedArticles.length === 0 && <h2 className='font-bold text-center '>Loading...</h2>}
 
-                {articles.map((element, index) => (
-                    < NewsItem
+            <div className='grid sm:grid-cols-2 lg:grid-cols-3 py-5 md:px-20 mx-auto'>
+                {searchedArticles && searchedArticles.map((element, index) => (
+                    <NewsItem
                         key={index}
                         title={element.title}
                         sourseName={element.source.name}
@@ -53,6 +49,7 @@ const News = ({ category, setProgress }) => {
             </div>
         </>
     )
+
 }
 
-export default News
+export default SearchedNews

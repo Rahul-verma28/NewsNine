@@ -4,14 +4,18 @@ import { NavbarDefault } from './components/NavbarDefault';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Footer } from './components/Footer';
 import LoadingBar from 'react-top-loading-bar';
+import SearchedNews from './components/SearchedNews';
 
 
 export default function App() {
   const [progress, setProgress] = useState(0);
+  const [category, setcategory] = useState("general");
+  const [value, setvalue] = React.useState("informative");
+
 
   return (
     <Router>
-      <NavbarDefault />
+      <NavbarDefault setcategory= {setcategory} setvalue={setvalue}/>
       <LoadingBar
         color='#f11946'
         progress={progress}
@@ -20,15 +24,16 @@ export default function App() {
         Breaking News
       </h1>
       <Routes>
-        <Route path="/" element={<News setProgress={setProgress} key="general" category="general" />} />
-        <Route path="/all" element={<News setProgress={setProgress} key="general" category={"general"} />} />
-        <Route path="/business" element={<News setProgress={setProgress} key="business" category={"business"} />} />
-        <Route path="/entertainment" element={<News setProgress={setProgress} key="entertainment" category={"entertainment"} />} />
-        <Route path="/general" element={<News setProgress={setProgress} key="general" category={"general"} />} />
-        <Route path="/health" element={<News setProgress={setProgress} key="health" category={"health"} />} />
-        <Route path="/science" element={<News setProgress={setProgress} key="science" category={"science"} />} />
-        <Route path="/sports" element={<News setProgress={setProgress} key="sports" category={"sports"} />} />
-        <Route path="/technology" element={<News setProgress={setProgress} key="technology" category={"technology"} />} />
+        <Route path="/" element={<News setProgress={setProgress} category={category} />} />
+        <Route path="/all" element={<News setProgress={setProgress} key="generrral" category={category} />} />
+        <Route path="/business" element={<News setProgress={setProgress} key="business" category={category} />} />
+        <Route path="/entertainment" element={<News setProgress={setProgress} key="entertainment" category={category} />} />
+        <Route path="/general" element={<News setProgress={setProgress} key="general" category={category} />} />
+        <Route path="/health" element={<News setProgress={setProgress} key="health" category={category} />} />
+        <Route path="/science" element={<News setProgress={setProgress} key="science" category={category} />} />
+        <Route path="/sports" element={<News setProgress={setProgress} key="sports" category={category} />} />
+        <Route path="/technology" element={<News setProgress={setProgress} key="technology" category={category} />} />
+        <Route path="/SearchedNews" element={<SearchedNews value={value} setProgress={setProgress} />} />
       </Routes>
       <Footer />
     </Router>

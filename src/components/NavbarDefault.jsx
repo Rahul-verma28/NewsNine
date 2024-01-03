@@ -5,9 +5,11 @@ import {
   Collapse,
   Typography,
   IconButton,
+  Button,
+  Input,
 } from "@material-tailwind/react";
 
-export function NavbarDefault() {
+export function NavbarDefault({ setcategory, setvalue }) {
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
@@ -20,6 +22,7 @@ export function NavbarDefault() {
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography
+        onClick={() => { setcategory("general") }}
         as="li"
         variant="small"
         color="blue-gray"
@@ -30,6 +33,7 @@ export function NavbarDefault() {
         </Link>
       </Typography>
       <Typography
+        onClick={(e) => { setcategory(e.target.innerHTML); setOpenNav(false) }}
         as="li"
         variant="small"
         color="blue-gray"
@@ -40,6 +44,7 @@ export function NavbarDefault() {
         </Link>
       </Typography>
       <Typography
+        onClick={(e) => { setcategory(e.target.innerHTML); setOpenNav(false) }}
         as="li"
         variant="small"
         color="blue-gray"
@@ -50,16 +55,18 @@ export function NavbarDefault() {
         </Link>
       </Typography>
       <Typography
+        onClick={(e) => { setcategory(e.target.innerHTML); setOpenNav(false) }}
         as="li"
         variant="small"
         color="blue-gray"
         className="p-1 font-normal hover:underline "
       >
         <Link to="/general" className="flex items-center ">
-          Geranal
+          General
         </Link>
       </Typography>
       <Typography
+        onClick={(e) => { setcategory(e.target.innerHTML); setOpenNav(false) }}
         as="li"
         variant="small"
         color="blue-gray"
@@ -70,6 +77,7 @@ export function NavbarDefault() {
         </Link>
       </Typography>
       <Typography
+        onClick={(e) => { setcategory(e.target.innerHTML); setOpenNav(false) }}
         as="li"
         variant="small"
         color="blue-gray"
@@ -80,6 +88,7 @@ export function NavbarDefault() {
         </Link>
       </Typography>
       <Typography
+        onClick={(e) => { setcategory(e.target.innerHTML); setOpenNav(false) }}
         as="li"
         variant="small"
         color="blue-gray"
@@ -90,10 +99,12 @@ export function NavbarDefault() {
         </Link>
       </Typography>
       <Typography
+        onClick={(e) => { setcategory(e.target.innerHTML); setOpenNav(false) }}
         as="li"
         variant="small"
         color="blue-gray"
         className="p-1 font-normal hover:underline"
+        
       >
         <Link to="/technology" className="flex items-center active:font-bold">
           Technology
@@ -108,16 +119,54 @@ export function NavbarDefault() {
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
-          to="/technology"
+          to="/"
           className="mr-4 cursor-pointer py-1.5 font-bold text-3xl hover:underline"
           onClick={() => {
-            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+            setcategory("general")
           }}
         >
-          <span className="flex"> <img src="icon.png" width={40} alt="logo" /> NewsNine</span>
+          <Link to="/">
+            <span className="flex"> <img src="icon.png" width={40} alt="logo" /> NewsNine</span>
+          </Link>
         </Typography>
         <div className="flex items-center gap-4">
           <div className="mr-4 hidden lg:block">{navList}</div>
+          <div className="relative flex w-full gap-2 md:w-max">
+            <Input
+              id="input"
+              type="search"
+              color="black"
+              label="Type here..."
+              className="pr-6"
+              containerProps={{
+                className: "",
+
+              }}
+            />
+            <Button
+              onClick={() => {
+                let a = document.getElementById("input").value;
+                if( a== undefined || a=== "" ||  a===null){
+                  alert ("Enter somthing to search...")
+                }
+                else{
+                  setvalue(a);
+                }
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+              }}
+
+              type="button"
+
+              size="sm"
+              color="black"
+              className="!absolute right-1 top-1 rounded"
+            >
+              <Link to="/SearchedNews">
+                Search
+              </Link>
+            </Button>
+          </div>
           <IconButton
             variant="text"
             className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
