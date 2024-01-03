@@ -147,7 +147,7 @@ export function NavbarDefault({ setcategory, setvalue }) {
             <Button
               onClick={() => {
                 let a = document.getElementById("input").value;
-                if( a== undefined || a=== "" ||  a===null){
+                if( a=== undefined || a=== "" ||  a===null){
                   alert ("Enter somthing to search...")
                 }
                 else{
