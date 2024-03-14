@@ -12,8 +12,11 @@ export default function App() {
   const [category, setcategory] = useState("general");
   const [value, setvalue] = React.useState("informative");
 
-
+  const api= process.env.REACT_NEWS_API_KEY;
+  console.log(api);
   return (
+
+    
     <Router>
       <NavbarDefault setcategory= {setcategory} setvalue={setvalue}/>
       <LoadingBar
@@ -24,7 +27,7 @@ export default function App() {
         Breaking News
       </h1>
       <Routes>
-        <Route path="/" element={<News setProgress={setProgress} category={category} />} />
+        <Route path="/" element={<News setProgress={setProgress}  category={category} />} />
         <Route path="/all" element={<News setProgress={setProgress} key="generrral" category={category} />} />
         <Route path="/business" element={<News setProgress={setProgress} key="business" category={category} />} />
         <Route path="/entertainment" element={<News setProgress={setProgress} key="entertainment" category={category} />} />

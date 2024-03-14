@@ -4,11 +4,11 @@ import axios from 'axios'
 
 
 const SearchedNews = ({ setProgress, value }) => {
-    const [searchedArticles, setsearchedArticles] = useState([])
+    const [searchedArticles, setSearchedArticles] = useState([])
 
     useEffect(() => {
 
-        const url = `https://newsapi.org/v2/everything?q=${value}&apiKey=bf3aa761613547dc8fdc2056e11b3fc6`
+        const url = `https://newsapi.org/v2/everything?q=${value}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
         // const url = `https://newsapi.org/v2/everything?q=modi&apiKey=bf3aa761613547dc8fdc2056e11b3fc6`
 
         async function fetchData() {
@@ -16,7 +16,7 @@ const SearchedNews = ({ setProgress, value }) => {
                 setProgress(0)
                 const response = await axios.get(url)
                 let allnews = response.data.articles;
-                setsearchedArticles(allnews)
+                setSearchedArticles(allnews)
                 setProgress(100)
                 console.log(value)
             } catch (error) {
@@ -26,8 +26,6 @@ const SearchedNews = ({ setProgress, value }) => {
 
 
         fetchData();
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
     return (
