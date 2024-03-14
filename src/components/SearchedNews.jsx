@@ -26,7 +26,7 @@ const SearchedNews = ({ setProgress, value }) => {
 
 
         fetchData();
-    }, [value])
+    }, [value, setProgress])
 
     return (
         <>
