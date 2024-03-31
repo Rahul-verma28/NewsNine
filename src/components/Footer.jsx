@@ -1,21 +1,31 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 export function Footer() {
     return (
-        <section className="md:mt-[10%] sm:mt-[5%] overflow-hidden py-10 bg-black z-[-1]">
-            <div className="relative z-10 mx-auto max-w-7xl px-4">
+        <section className="overflow-hidden py-10 bg-black z-8">
+            <div className="relative mx-auto max-w-7xl px-4">
                 <div className="-m-6 flex flex-wrap ">
                     <div className="w-full p-12 md:w-1/2 lg:w-5/12">
-                        <div className="p-5 flex h-full flex-col justify-between">
-                            <div onClick={()=>{window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}} className="mb-4 inline-flex items-center z[-1]">
+                        <div className="p-5 flex h-full flex-col justify-between ">
+                            <div
+                                onClick={() => {
+                                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                                }}
+                                className="mb-4 inline-flex items-center z[-1] cursor-pointer"
+                            >
                                 <img src="icon.png" width={35} alt="logo" />
-                                <span className="ml-2 text-lg text-white font-bold">NewsNine</span>
+                                <span className="ml-2 text-lg text-white font-bold hover:underline">
+                                    NewsNine
+                                </span>
                             </div>
                             <div>
-                                <p className="mb-4 text-white text-base font-medium">Read your daily news</p>
+                                <p className="mb-4 text-white text-base font-medium">
+                                    Read your daily news
+                                </p>
                                 <p className="text-sm text-white hover:underline">
-                                    &copy; Copyright 2022. All Rights Reserved by NewsNine- Rahul verma.
+                                    &copy; Copyright 2024. All Rights Reserved by NewsNine- Rahul
+                                    verma.
                                 </p>
                             </div>
                         </div>
@@ -27,22 +37,34 @@ export function Footer() {
                             </h3>
                             <ul>
                                 <li className="mb-4">
-                                    <Link className="hover:underline text-base font-medium text-white hover:text-gray-500" to="/">
+                                    <Link
+                                        className="hover:underline text-base font-medium text-white hover:text-gray-500"
+                                        to="/"
+                                    >
                                         Features
                                     </Link>
                                 </li>
                                 <li className="mb-4">
-                                    <Link className="hover:underline text-base font-medium text-white hover:text-gray-500" to="/">
+                                    <Link
+                                        className="hover:underline text-base font-medium text-white hover:text-gray-500"
+                                        to="/"
+                                    >
                                         Pricing
                                     </Link>
                                 </li>
                                 <li className="mb-4">
-                                    <Link className="hover:underline text-base font-medium text-white hover:text-gray-500" to="/">
+                                    <Link
+                                        className="hover:underline text-base font-medium text-white hover:text-gray-500"
+                                        to="/"
+                                    >
                                         Affiliate Program
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="hover:underline text-base font-medium text-white hover:text-gray-500" to="/">
+                                    <Link
+                                        className="hover:underline text-base font-medium text-white hover:text-gray-500"
+                                        to="/"
+                                    >
                                         Press Kit
                                     </Link>
                                 </li>
@@ -56,22 +78,34 @@ export function Footer() {
                             </h3>
                             <ul>
                                 <li className="mb-4">
-                                    <Link className="hover:underline text-base font-medium text-white hover:text-gray-500" to="/">
+                                    <Link
+                                        className="hover:underline text-base font-medium text-white hover:text-gray-500"
+                                        to="/"
+                                    >
                                         Account
                                     </Link>
                                 </li>
                                 <li className="mb-4">
-                                    <Link className="hover:underline text-base font-medium text-white hover:text-gray-500" to="/">
+                                    <Link
+                                        className="hover:underline text-base font-medium text-white hover:text-gray-500"
+                                        to="/"
+                                    >
                                         Help
                                     </Link>
                                 </li>
                                 <li className="mb-4">
-                                    <Link className="hover:underline text-base font-medium text-white hover:text-gray-500" to="/">
+                                    <Link
+                                        className="hover:underline text-base font-medium text-white hover:text-gray-500"
+                                        to="/"
+                                    >
                                         Contact Us
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="hover:underline text-base font-medium text-white hover:text-gray-500" to="/">
+                                    <Link
+                                        className="hover:underline text-base font-medium text-white hover:text-gray-500"
+                                        to="/"
+                                    >
                                         Customer Support
                                     </Link>
                                 </li>
@@ -85,17 +119,26 @@ export function Footer() {
                             </h3>
                             <ul>
                                 <li className="mb-4">
-                                    <Link className="hover:underline text-base font-medium text-white hover:text-gray-500" to="/">
+                                    <Link
+                                        className="hover:underline text-base font-medium text-white hover:text-gray-500"
+                                        to="/"
+                                    >
                                         Terms &amp; Conditions
                                     </Link>
                                 </li>
                                 <li className="mb-4">
-                                    <Link className="hover:underline text-base font-medium text-white hover:text-gray-500" to="/">
+                                    <Link
+                                        className="hover:underline text-base font-medium text-white hover:text-gray-500"
+                                        to="/"
+                                    >
                                         Privacy Policy
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="hover:underline text-base font-medium text-white hover:text-gray-500" to="/">
+                                    <Link
+                                        className="hover:underline text-base font-medium text-white hover:text-gray-500"
+                                        to="/"
+                                    >
                                         Licensing
                                     </Link>
                                 </li>
@@ -105,5 +148,5 @@ export function Footer() {
                 </div>
             </div>
         </section>
-    )
+    );
 }

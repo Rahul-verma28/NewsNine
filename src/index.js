@@ -6,7 +6,7 @@ import "./index.css";
 import { ThemeProvider } from "@material-tailwind/react";
  
 const root = ReactDOM.createRoot(document.getElementById("root"));
- 
+ console.log(root);
 root.render(
   <React.StrictMode>
     <ThemeProvider>
