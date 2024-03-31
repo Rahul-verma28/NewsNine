@@ -35,6 +35,9 @@ const AboutSection = () => {
           <Typography variant="body" color="blue-gray" className="mb-4">
             Join us on this journey of discovery, exploration, and enlightenment. Whether you're seeking to broaden your horizons, stay updated on current events, or simply indulge in your passion for knowledge, NewsNine is here to accompany you every step of the way.
           </Typography>
+          <Typography variant="h5" className="font-bold ">
+          Note: <span className="text-sm">The application you've just experienced showcases limited functionality due to constraints with the NEWS API. Regrettably, this api operates only on localhost and is incompatible with deployment environments, so this api can not be deploy. Consequently, the news articles displayed were not the latest available.</span>
+        </Typography>
         </div>
       </div>
     </section>
